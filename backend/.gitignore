@@ -37,7 +37,8 @@ ENV/
 .env/
 env.bak/
 venv.bak/
-
+.env
+.env*
 # PyInstaller
 *.manifest
 *.spec
