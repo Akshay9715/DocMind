@@ -24,7 +24,7 @@ class Document(Base):
     id = Column(Integer, primary_key=True,index=True)
     filename = Column(String(255),nullable=False)
     owner_id = Column(Integer,ForeignKey("users.id"),nullable=False)
-    upload_at = Column(DateTime,default=datetime.now)
+    uploaded_at = Column(DateTime,default=datetime.now)
 
     # Relationship
     owner = relationship("User", back_populates="documents")
