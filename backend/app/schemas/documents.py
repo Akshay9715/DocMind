@@ -9,7 +9,8 @@ class DocumentResponse(BaseModel):
     owner_id: int
     uploaded_at: datetime
 
-    model_config: {"from_attributes":True}
+    class Config:
+        from_attributes : True
 
 class UploadResponse(BaseModel):
     pass

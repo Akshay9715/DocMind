@@ -1,10 +1,12 @@
 fastapi
 uvicorn
 pydantic
+pydantic[email]
 python-dotenv
 passlib[bcrypt]
 pyJWT
 pathlib
+argon2_cffi
 
 fastapi
 uvicorn

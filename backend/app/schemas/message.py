@@ -8,4 +8,5 @@ class MessageResponse(BaseModel):
     content: str
     timestamp: datetime
 
-    model_config: {"from_attributes": True}
+    class Config:
+        from_attributes : True

@@ -5,7 +5,7 @@ import jwt
 
 
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+pwd_context = CryptContext(schemes=["argon2"], deprecated="auto")
 
 
 def hash_password(password: str)-> str:
@@ -18,8 +18,8 @@ def verify_password(password: str, hashed_password: str)->bool:
 
 def create_access_token(doc:dict, expires: timedelta = timedelta(minutes=30)) -> str:
     to_encode = doc.copy()
-    to_encode["exp"] = expires
-
+    expire = datetime.now() + expires if expires else datetime.utcnow() + timedelta(minutes=15)
+    to_encode.update({"exp": expire})
     access_token = jwt.encode(to_encode,JWT_SECRET, algorithm=ENCRYPTION_ALGORITHM)
 
     return access_token

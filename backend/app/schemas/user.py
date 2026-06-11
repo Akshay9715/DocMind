@@ -11,9 +11,10 @@ class UserCreate(BaseModel):
 class UserResponse(BaseModel):
     id: int
     name: str
-    emal: EmailStr
+    email: EmailStr
     created_at: datetime
 
-    model_config : {"from_attributes": True}
+    class Config:
+        from_attributes : True
 
 
