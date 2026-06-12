@@ -1,7 +1,7 @@
 from fastapi import FastAPI, APIRouter
 from app.database.database import Base, engine
 from app.api.auth import router as auth_router
-
+from app.api.documents import router as document_router
 from fastapi.middleware.cors import CORSMiddleware
 
 Base.metadata.create_all(bind=engine)
@@ -16,8 +16,7 @@ app.include_router(
 #     prefix=['auth/'],
 #     tags=['authentication']
 # )
-# app.include_router(
-#     document_router,
-#     prefix=['auth/'],
-#     tags=['authentication']
-# )
+app.include_router(
+    document_router,
+    prefix="/documents"
+)

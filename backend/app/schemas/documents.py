@@ -13,4 +13,7 @@ class DocumentResponse(BaseModel):
         from_attributes : True
 
 class UploadResponse(BaseModel):
-    pass
+    id : int
+    filename : str
+    owner_id : int
+    uploaded_at: datetime

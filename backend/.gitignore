@@ -101,3 +101,7 @@ dmypy.json
 # OS-specific
 .DS_Store
 Thumbs.db
+
+# Unnecessary folder
+backend/app/storage/
+backend/docmind.db
