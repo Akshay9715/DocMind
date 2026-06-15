@@ -4,11 +4,24 @@ client = chromadb.PersistentClient(path="app/storage/vectors")
 
 collection = (client.get_or_create_collection("documents"))
 
+
+
 def store_vectors(document_id: int, chunks: list[str], embeddings: list):
     
     ids = [f"{document_id}_{i}" for i in range(len(chunks))]
 
-    collection.add(ids=ids, documents = chunks, embeddings=embeddings)
+    collection.add(
+    ids=ids,
+    documents=chunks,
+    embeddings=embeddings,
+    metadatas=[
+        {
+            "document_id": document_id
+        }
+        for _ in chunks
+    ]
+)
+    
 
 
 def delete_vectors(document_id : int):

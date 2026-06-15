@@ -19,3 +19,4 @@ alembic
 
 langchain
 langchain-google-genai
+langchain-text-splitters

@@ -1,12 +1,16 @@
 from app.rag.models import embedding_model
 from app.rag.models import chatbot
+from app.rag.chunker import (
+    chunk_text
+)
+
 
 def process_document(text: str, document_id: int):
 
     from app.services.embedding_service import generate_embeddings
     from app.services.vectorstore_service import store_vectors
     
-    chunks = [text[i:i+1000] for i in range(0,len(text),1000)]
+    chunks = chunk_text(text)
 
     embeddings = (generate_embeddings(chunks))
 
