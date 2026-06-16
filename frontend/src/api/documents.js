@@ -10,14 +10,21 @@ export const uploadDocument = async (file) => {
     formData,
     {
       headers: {
-        "Content-Type": "multipart/form-data",
+        "Content-Type":
+          "multipart/form-data",
       },
     }
   );
 };
 
-export const getDocuments = () =>
-  api.get("/documents/");
+export const getDocuments = async () => {
+  return api.get("/documents/");
+};
 
-export const deleteDocument = (id) =>
-  api.delete(`/documents/${id}`);
+export const deleteDocument = async (
+  id
+) => {
+  return api.delete(
+    `/documents/${id}`
+  );
+};
