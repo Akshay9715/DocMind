@@ -19,3 +19,8 @@ def process_document(text: str, document_id: int):
 
 def generate_embeddings(chunks: list[str]):
     return (embedding_model.embed_documents(chunks))
+
+
+
+def generate_query_embedding(query: str) -> list:
+    return embedding_model.embed_query(query)

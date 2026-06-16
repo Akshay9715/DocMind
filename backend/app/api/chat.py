@@ -26,6 +26,6 @@ def chat(
     )
 
 @router.get("history/{session_id}")
-def chat_history(session_id: int, current_user: Session = Depends(get_current_user)):
-    return chat_history_service(session_id, current_user)
+def chat_history(session_id: int, current_user: Session = Depends(get_current_user),db: Session = Depends(get_db)):
+    return chat_history_service(session_id, current_user,db)
 
