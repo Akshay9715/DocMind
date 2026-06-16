@@ -31,3 +31,7 @@ app.include_router(
     document_router,
     prefix="/documents"
 )
+
+@app.get("/")
+def health():
+    return {"status": "ok"}
